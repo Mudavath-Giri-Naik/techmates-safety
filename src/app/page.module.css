@@ -1,141 +1,112 @@
-.page {
-  --background: #fafafa;
-  --foreground: #fff;
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
 
-  --text-primary: #000;
-  --text-secondary: #666;
+.header {
+  position: sticky;
+  top: 0;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border-color);
+  z-index: 100;
+  padding: 1rem 0;
+  margin-bottom: 3rem;
+}
 
-  --button-primary-hover: #383838;
-  --button-secondary-hover: #f2f2f2;
-  --button-secondary-border: #ebebeb;
-
+.nav {
   display: flex;
-  min-height: 100vh;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  font-family: var(--font-geist-sans);
-  background-color: var(--background);
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary-blue);
+  letter-spacing: -0.5px;
 }
 
 .main {
-  display: flex;
-  min-height: 100vh;
-  width: 100%;
-  max-width: 800px;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: space-between;
-  background-color: var(--foreground);
-  padding: 120px 60px;
+  min-height: 80vh;
 }
 
-.intro {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  text-align: left;
-  gap: 24px;
+.section {
+  margin-bottom: 4rem;
 }
 
-.intro h1 {
-  max-width: 320px;
-  font-size: 40px;
-  font-weight: 600;
-  line-height: 48px;
-  letter-spacing: -2.4px;
-  text-wrap: balance;
-  color: var(--text-primary);
+.pageTitle {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  color: var(--foreground);
 }
 
-.intro p {
-  max-width: 440px;
-  font-size: 18px;
-  line-height: 32px;
-  text-wrap: balance;
-  color: var(--text-secondary);
+.sectionTitle {
+  font-size: 1.5rem;
+  color: var(--primary-blue);
+  border-bottom: 2px solid var(--border-color);
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
 }
 
-.intro a {
-  font-weight: 500;
-  color: var(--text-primary);
+.card {
+  background: white;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow: 0 4px 6px var(--shadow-color);
+  margin-bottom: 2rem;
 }
 
-.ctas {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  max-width: 440px;
-  gap: 16px;
-  font-size: 14px;
+.highlightList li {
+  position: relative;
+  padding-left: 1.5rem;
 }
 
-.ctas a {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 40px;
-  padding: 0 16px;
-  border-radius: 128px;
-  border: 1px solid transparent;
-  transition: 0.2s;
-  cursor: pointer;
-  width: fit-content;
-  font-weight: 500;
+.highlightList li::before {
+  content: "•";
+  color: var(--primary-blue);
+  position: absolute;
+  left: 0;
+  font-weight: bold;
 }
 
-a.primary {
-  background: var(--text-primary);
-  color: var(--background);
-  gap: 8px;
+.footer {
+  border-top: 1px solid var(--border-color);
+  padding: 2rem 0;
+  text-align: center;
+  margin-top: 4rem;
+  font-size: 0.9rem;
+  color: var(--secondary-text);
 }
 
-a.secondary {
-  border-color: var(--button-secondary-border);
+.contactLink {
+  color: var(--primary-blue);
+  text-decoration: underline;
+  text-underline-offset: 4px;
 }
 
-/* Enable hover only on non-touch devices */
-@media (hover: hover) and (pointer: fine) {
-  a.primary:hover {
-    background: var(--button-primary-hover);
-    border-color: transparent;
-  }
-
-  a.secondary:hover {
-    background: var(--button-secondary-hover);
-    border-color: transparent;
-  }
+.alertBox {
+  background-color: #f8f9fa;
+  border-left: 4px solid var(--primary-blue);
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  border-radius: 0 8px 8px 0;
 }
 
+/* Mobile Responsiveness */
 @media (max-width: 600px) {
-  .main {
-    padding: 48px 24px;
+  .pageTitle {
+    font-size: 2rem;
   }
 
-  .intro {
-    gap: 16px;
+  .section {
+    margin-bottom: 3rem;
   }
 
-  .intro h1 {
-    font-size: 32px;
-    line-height: 40px;
-    letter-spacing: -1.92px;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  .logo {
-    filter: invert();
-  }
-
-  .page {
-    --background: #000;
-    --foreground: #000;
-
-    --text-primary: #ededed;
-    --text-secondary: #999;
-
-    --button-primary-hover: #ccc;
-    --button-secondary-hover: #1a1a1a;
-    --button-secondary-border: #1a1a1a;
+  .card {
+    padding: 1.5rem;
   }
 }
